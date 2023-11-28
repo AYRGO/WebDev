@@ -81,19 +81,19 @@
             <img src="assets/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
-            <h3>Incoming Dhvsu Inrams</h3>
+            <h3>About Our Visitor Tracker</h3>
             <p class="fst-italic">
-              Basketball
+              Welcome to <strong>Don Honorio Ventura State University</strong> Visitor Management System!
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li>Effortless Registration: Visitors can easily pre-register through the app, reducing waiting times and streamlining the check-in process upon arrival.</li>
+    <li>Real-time Tracking: Provides real-time tracking of visitor movements across various campus locations, enhancing security measures and enabling swift response in emergencies.</li>
+    <li>Customized Access: Tailored access permissions allow us to manage different visitor categories, ensuring appropriate access to designated areas within the university.</li>
+    <li>Enhanced Security: Integration of advanced identification technologies prioritizes the safety of our campus community while providing a welcoming environment for guests.</li>
+    <li>User-Friendly Interface: Our user-centric design ensures ease of use for both visitors and administrators, offering a seamless experience from registration to departure.</li>
             </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-            </p>
+            <p>Join us in revolutionizing visitor management at <strong>[Your University's Name]</strong>. Experience the convenience, efficiency, and security our app offers, 
+            as we continue to prioritize the safety and well-being of everyone within our university's grounds.</p>
           </div>
         </div>
 
