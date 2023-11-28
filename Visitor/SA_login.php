@@ -1,74 +1,73 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // palitan ng database credentials
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Replace with your database credentials
     $hostname = 'your_db_hostname';
     $username = 'your_db_username';
     $password = 'your_db_password';
     $dbname = 'your_db_name';
 
-    // Create connection
-    $conn = new mysqli($hostname, $username, $password, $dbname);
+    try {
+        // Create a PDO connection
+        $conn = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
+        
+        // Set PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+        // Retrieve username and password from POST request
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
 
-    // Retrieve username and password from POST request
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        // Query to fetch user from the database (Note: Hash passwords in production)
+        $sql = "SELECT * FROM users WHERE username=:username AND password=:password";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
 
-        // Query to fetch user from the database (Remember to use prepared statements for better security)
-        $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-        $result = $conn->query($sql);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result->num_rows == 1) {
+        if ($user) {
             // Login successful
             $_SESSION['username'] = $username;
             header("Location: welcome.php"); // Redirect to welcome page after successful login
             exit();
         } else {
             // Login failed
-            $error = "Invalid username or password";
+            $login_error = "Invalid username or password";
         }
-    } else {
-        $error = "Please provide username and password";
+    } catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
     }
 
-    $conn->close();
+    $conn = null;
 }
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Login SuperAdmin</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
 </head>
 <body>
- <h2>Login</h2>
+    <h2>Login</h2>
     <form action="" method="post">
-        <?php if (isset($error)) { ?>
-            <p><?php echo $error; ?></p>
-        <?php } ?>
         <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
         </div>
-        
         <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
         <div>
             <input type="submit" value="Login">
-     
         </div>
     </form>
-
+    
+    <?php if (isset($login_error)) { ?>
+        <p><?php echo $login_error; ?></p>
+    <?php } ?>
 </body>
 </html>
