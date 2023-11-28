@@ -92,7 +92,7 @@
     <li>Enhanced Security: Integration of advanced identification technologies prioritizes the safety of our campus community while providing a welcoming environment for guests.</li>
     <li>User-Friendly Interface: Our user-centric design ensures ease of use for both visitors and administrators, offering a seamless experience from registration to departure.</li>
             </ul>
-            <p>Join us in revolutionizing visitor management at <strong>[Your University's Name]</strong>. Experience the convenience, efficiency, and security our app offers, 
+            <p>Join us in revolutionizing visitor management at <strong>Don Honorio Ventura State University</strong>. Experience the convenience, efficiency, and security our app offers, 
             as we continue to prioritize the safety and well-being of everyone within our university's grounds.</p>
           </div>
         </div>
